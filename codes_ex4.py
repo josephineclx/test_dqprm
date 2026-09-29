@@ -26,12 +26,14 @@ act_1_Bq = (dose_foie_limite_Gy *m_kg * np.log(2)) / (T_y90_s * delta_J)
 act_1=act_1_Bq / 1e9
 print(f"L'activité à injecter est de {act_1:.2f} GBq pour atteindre {dose_foie_limite_Gy} Gy au lobe droit.")
 
-
+#Calcul du ratio
 ratio_tum_lobe = df.loc['tum_dome_SPECT', 'Mean'] / df.loc['lobe_droit', 'Mean']
 print(f"Le rapport des concentrations est estimé à {ratio_tum_lobe:.2f}")
 
-m_tum = 11.118026
-m_n = 833.848860
+m_tum = 11.118026  #masse de la tumeur en g
+m_n = 833.848860 #masse du foie en g 
+
+
 A_n = (2.01*10e-3)/ (1+(ratio_tum_lobe*(m_tum/m_n)))
 A_t = ratio_tum_lobe * A_n * (m_tum/m_n)
 print(f'Les activités dans le foie perfusé et la tumeur sont {A_n*1000:.2f} et {A_t*1000:.2f} MBq respectivement.')
@@ -39,6 +41,8 @@ print(f'Les activités dans le foie perfusé et la tumeur sont {A_n*1000:.2f} et
 
 A_t_Bq = A_t *10e6
 m_tum_kg = m_tum /1000
+
+#Calcul de la dose reçue par la tumeur à partir de l'activité
 dose_t = (A_t_Bq* T_y90_s * delta_J)/ (m_tum_kg * np.log(2))
 print(f'La dose à la tumeur est {dose_t:.2f} Gy')
 
