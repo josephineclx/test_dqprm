@@ -1,10 +1,11 @@
 import pandas as pd
+import numpy as np
 
 df = pd.read_csv('./data/Table.csv',sep='\t', decimal='.', index_col=0)
 df
 
 
-
+#hypothèse de masse volumique du tissu hépatique
 rho_g_per_cm3 = 1.03
 df['Masse [g]'] = df['Volume [cm3]']* rho_g_per_cm3
 df
@@ -13,13 +14,14 @@ df
 m_foie_lobe_d = df.loc['lobe_droit','Masse [g]']
 
 
-import numpy as np
-
+#Constantes phys et rad
 delta_Mev_per_Bq_s = 0.9336
 T_y90_s = 64.05*3600
 dose_foie_limite_Gy = 120
 m_kg=m_foie_lobe_d /1000
 delta_J= delta_Mev_per_Bq_s * 1.602e-13
+
+#calcul activité totale requise
 act_1_Bq = (dose_foie_limite_Gy *m_kg * np.log(2)) / (T_y90_s * delta_J)
 act_1=act_1_Bq / 1e9
 print(f"L'activité à injecter est de {act_1:.2f} GBq pour atteindre {dose_foie_limite_Gy} Gy au lobe droit.")
