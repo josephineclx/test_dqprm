@@ -1,7 +1,9 @@
 ## Exercice 3 - Dosimétrie
------------
+
 
 ### Contexte
+
+
 **Radioembolisation** dans le traitement d'un cancer hépatique à l'aide de **microsphères de verre** marquées à l'$^{90}Y$.
 
 Planification de l'activité à administrer à l'aide d'une acquisition tomographique réalisée au $^{99m}Tc$-MAA
@@ -71,3 +73,11 @@ Données :
 * On considère que les tissus hépatiques et la tumeur ont une masse volumique égale à 1.03 $\frac{g}{cm^3}$
 
 Note : Attention aux conversions
+
+Remarques :
+
+Unités : Toujours convertir (heures $\rightarrow$ secondes, MeV $\rightarrow$ Joules via $1.602 \times 10^{-13}$, grammes $\rightarrow$ kg).
+
+Cible : Bien vérifier si la dose limite (120 Gy) s'applique au lobe droit ou au foie entier.
+
+
