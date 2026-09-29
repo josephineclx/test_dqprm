@@ -22,6 +22,9 @@ L'activité perfusée dans le foie se répartie dans lui-même et les poumons s'
 - L'activité dans le foie comprenant la partie saine ($A_N$) et tumorale ($A_T$) est estimée par $A_N+A_T = A_{inj.} (1-\frac{L}{100})$
 - Le rapport tumeur/foie sain $r=\frac{\frac{A_T}{m_T}}{\frac{A_N}{m_N}}$ peut être estimé à partir des pseudo-concentrations d'activité mesurées par la segmentation dans la tumeur et le foie sain. A l'aide de l'équation précédente, on peut ensuite exprimer les activités dans le foie sain ($A_N$) et dans la tumeur ($A_T$) en fonction de ce rapport et de $A_{inj.}$.
 
+Note : pseudo concentrations = valeurs mean sur SPECT (pas besoin des valeurs du CT car pas une activité). Pas besoin d'utiliser les masses
+
+
 ### Rappels
 
 #### Equation du MIRD
@@ -50,6 +53,8 @@ $$ A(0)_{foie} = \frac{\bar{D}_{foie} \times m_{foie} \times ln\,2}{T_{phys.}\ti
 
 Dans le cadre d'un traitement par radioembolisation avec des µ-sphères de verre, on souhaite délivrer une dose absorbée de 120 Gy dans **l'ensemble du foie perfusé**.
 
+Note : Valeur de 120 Gy, valeur limite pour le lobe droit
+
 **Question 1.** Lire avec Pandas le fichier `Table.csv` contenu dans le dossier `data` qui contient les valeurs des différents volumes d'intérêt ainsi que les activités dans ces volumes (attention au format du séparateur de colonnes). La première colonne sera utilisée comme index des lignes.
 
 **Question 2.** Ajouter une colonne au tableau avec les masses des différents volumes d'intérêt (on prendra comme valeur de masse volumique $\rho=1.03\ g/cm^3$)
@@ -64,3 +69,5 @@ Données :
 * Période de l'yttrium 90 : 64,05 $heures$
 * Energie totale émise par transition : 0.9336 $\frac{MeV}{Bq.s}$
 * On considère que les tissus hépatiques et la tumeur ont une masse volumique égale à 1.03 $\frac{g}{cm^3}$
+
+Note : Attention aux conversions
